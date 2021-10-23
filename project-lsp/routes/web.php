@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\ArsipController;
+use App\Models\Arsip;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -20,3 +22,4 @@ Route::get('/', function () {
 Route::get('/dashboard', function () {
     return view('pages.index');
 });
+Route::resource('/arsip', ArsipController::class);
