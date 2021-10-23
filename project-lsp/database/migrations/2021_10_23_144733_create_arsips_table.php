@@ -15,6 +15,10 @@ class CreateArsipsTable extends Migration
     {
         Schema::create('arsips', function (Blueprint $table) {
             $table->id();
+            $table->string('nomor_surat');
+            $table->foreignId('category_id');
+            $table->string('judul');
+            $table->string('file');
             $table->timestamps();
         });
     }
