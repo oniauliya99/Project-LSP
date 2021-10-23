@@ -25,3 +25,6 @@ Route::get('/dashboard', function () {
     ]);
 });
 Route::resource('/arsip', ArsipController::class);
+Route::get('/about', function () {
+    return view('pages.about');
+});

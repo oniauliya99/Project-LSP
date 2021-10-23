@@ -35,9 +35,15 @@
                             <td>{{ $item->judul }}</td>
                             <td>{{ $item->created_at }}</td>
                             <td>
-                                <span class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus</span>
-                                <span class="btn btn-warning btn-sm">Unduh</span>
-                                <span class="btn btn-primary btn-sm">Lihat</span>
+                                <div class="form-group d-flex">
+                                    <form action="{{ route('arsip.destroy', $item->id) }}" enctype="multipart/form-data">
+                                        <span class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus</span>
+                                    </form>
+                                    <span class="btn btn-warning btn-sm mx-1">Unduh</span>
+                                    <span class="btn btn-primary btn-sm">Lihat</span>
+                                </div>
+
                             </td>
                         </tr>
                     @endforeach

@@ -42,10 +42,18 @@ class ArsipController extends Controller
             'nomor_surat' => 'required',
             'category_id' => 'required',
             'judul' => 'required',
-            'file' => 'required'
+            'file' => 'file|max:2048|required'
         ]);
-        Arsip::create($insert);
-        return redirect('/arsip');
+        if($request->file('file')){
+            $file= $request->file('file')->store('pdf', 'public');
+        }
+        $save = new Arsip;
+        $save->file = $file;
+        $save->nomor_surat = $request->nomor_surat;
+        $save->category_id = $request->category_id;
+        $save->judul = $request->judul;
+        $save->save();
+        return redirect('/dashboard');
         
     }
 
