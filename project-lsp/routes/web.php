@@ -23,8 +23,8 @@ Route::get('/dashboard', function () {
     return view('pages.index',[
         'arsip' => Arsip::all()
     ]);
-});
+})->name('arsip');
 Route::resource('/arsip', ArsipController::class);
 Route::get('/about', function () {
     return view('pages.about');
-});
+})->name('about');

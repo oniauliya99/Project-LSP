@@ -41,7 +41,7 @@
                                             onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus</span>
                                     </form>
                                     <span class="btn btn-warning btn-sm mx-1">Unduh</span>
-                                    <span class="btn btn-primary btn-sm">Lihat</span>
+                                    <a href="{{ route('arsip.show',$item->id) }}"><span class="btn btn-primary btn-sm">Lihat</span></a>
                                 </div>
 
                             </td>

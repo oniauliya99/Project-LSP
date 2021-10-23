@@ -15,7 +15,7 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        return view('pages.arsip',[
+        return view('pages.arsip', [
             'category' => Category::all()
         ]);
     }
@@ -38,14 +38,14 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        $insert=$request->validate([
+        $insert = $request->validate([
             'nomor_surat' => 'required',
             'category_id' => 'required',
             'judul' => 'required',
             'file' => 'file|max:2048|required'
         ]);
-        if($request->file('file')){
-            $file= $request->file('file')->store('pdf', 'public');
+        if ($request->file('file')) {
+            $file = $request->file('file')->store('pdf', 'public');
         }
         $save = new Arsip;
         $save->file = $file;
@@ -54,7 +54,6 @@ class ArsipController extends Controller
         $save->judul = $request->judul;
         $save->save();
         return redirect('/dashboard');
-        
     }
 
     /**
@@ -65,7 +64,10 @@ class ArsipController extends Controller
      */
     public function show($id)
     {
-        //
+        $show = Arsip::find($id);
+        return view('pages.show', [
+                'detail' => $show
+            ]);
     }
 
     /**
@@ -100,5 +102,24 @@ class ArsipController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function simpan(Request $request)
+    {
+        // $insert = $request->validate([
+        //     'nomor_surat' => 'required',
+        //     'category_id' => 'required',
+        //     'judul' => 'required',
+        //     'file' => 'file|max:2048|required'
+        // ]);
+        if ($request->file('file')) {
+            $file = $request->file('file')->store('pdf', 'public');
+        }
+        $save = new Arsip;
+        $save->file = $file;
+        $save->nomor_surat = $request->nomor_surat;
+        $save->category_id = $request->category_id;
+        $save->judul = $request->judul;
+        $save->save();
+        return redirect('/dashboard');
     }
 }

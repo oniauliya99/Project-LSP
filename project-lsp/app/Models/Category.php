@@ -10,4 +10,9 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded =['id'];
+
+    public function arsip()
+    {
+        return $this->hasMany(Arsip::class);
+    }
 }
