@@ -27,23 +27,26 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>1,001</td>
-                        <td>random</td>
-                        <td>data</td>
-                        <td>placeholder</td>
-                        <td>text</td>
-                        <td>
-                            <span class="badge bg-danger">Hapus</span>
-                            <span class="badge bg-warning">Unduh</span>
-                            <span class="badge bg-primary">Lihat</span>
-                        </td>
-                    </tr>
+                    @foreach ($arsip as $item)
+                        <tr>
+                            <td>{{ $loop->iteration }}</td>
+                            <td>{{ $item->nomor_surat }}</td>
+                            <td>{{ $item->category->jenis }}</td>
+                            <td>{{ $item->judul }}</td>
+                            <td>{{ $item->created_at }}</td>
+                            <td>
+                                <span class="btn btn-danger btn-sm" onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus</span>
+                                <span class="btn btn-warning btn-sm">Unduh</span>
+                                <span class="btn btn-primary btn-sm">Lihat</span>
+                            </td>
+                        </tr>
+                    @endforeach
+
                 </tbody>
             </table>
             <div class="d-grid gap-2 d-md-block">
-               <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm">Arsipkan surat</button></a> 
-              </div>
+                <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm">Arsipkan surat</button></a>
+            </div>
         </div>
     </main>
 

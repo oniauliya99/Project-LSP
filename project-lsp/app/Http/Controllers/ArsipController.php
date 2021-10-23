@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Arsip;
 use App\Models\Category;
 use Illuminate\Http\Request;
 
@@ -37,7 +38,15 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $insert=$request->validate([
+            'nomor_surat' => 'required',
+            'category_id' => 'required',
+            'judul' => 'required',
+            'file' => 'required'
+        ]);
+        Arsip::create($insert);
+        return redirect('/arsip');
+        
     }
 
     /**

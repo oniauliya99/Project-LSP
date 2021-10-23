@@ -20,6 +20,8 @@ Route::get('/', function () {
 });
 
 Route::get('/dashboard', function () {
-    return view('pages.index');
+    return view('pages.index',[
+        'arsip' => Arsip::all()
+    ]);
 });
 Route::resource('/arsip', ArsipController::class);
