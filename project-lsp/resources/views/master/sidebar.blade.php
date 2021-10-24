@@ -4,7 +4,7 @@
             <div class="position-sticky pt-3">
                 <ul class="nav flex-column">
                     <li class="nav-item">
-                        <a class="nav-link {{ request()->is('arsip.index.*') ? 'active' : ''}}" aria-current="page" href="/dashboard">
+                        <a class="nav-link {{ request()->is('arsip.index.*') ? 'active' : ''}}" aria-current="page" href="/arsip">
                             <span data-feather="star"></span>
                             Arsip
                         </a>

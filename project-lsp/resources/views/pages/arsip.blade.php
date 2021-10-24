@@ -1,7 +1,7 @@
 @extends('master.index')
 @section('container')
     <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
-        <div class="d-block justify-content-between flex-wrap flex-md-nowrap align-items-center pt-5 pb-2 mb-3">
+        <div class="d-block justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3">
             <h1 class="h2" style="margin-left: 5%;font-family: Cambria">Arsip >> Unggah</h1>
             <p style="line-height: 0in;margin-left: 5%;margin-top:2%;font-family: Cambria">
                 Unggah surat yang telah terbit pada form ini untuk diarsipkan
@@ -35,7 +35,7 @@
                     <input style="margin-left: 25pt" name= "file" class="form-control form-control-sm" id="formFileSm" type="file">
                 </div>
                 <div class="d-grid gap-2 d-md-block mt-5">
-                <a href="/dashboard"><button type="button" class="btn btn-secondary btn-sm"><< Kembali</button></a>
+                <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm"><< Kembali</button></a>
                 <button type="submit" class="btn btn-secondary btn-sm">Simpan</button>
                 </div>
             </form>

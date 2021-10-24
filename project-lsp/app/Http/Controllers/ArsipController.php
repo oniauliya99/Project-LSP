@@ -15,9 +15,12 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        return view('pages.arsip', [
-            'category' => Category::all()
-        ]);
+        $arsips = Arsip::latest();
+        if (request('search')){
+           $arsips->where('judul','like','%'.request('search').'%');       
+        }
+        return view('pages.index',[
+                    'arsip' => $arsips->get()]);
     }
 
     /**
@@ -27,12 +30,9 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        $arsips = Arsip::latest();
-        if (request('search')){
-           $arsips->where('judul','like','%'.request('search').'%');       
-        }
-        return view('pages.index',[
-                    'arsip' => $arsips->get()]);
+        return view('pages.arsip', [
+            'category' => Category::all()
+        ]);
     }
 
     /**
@@ -58,7 +58,7 @@ class ArsipController extends Controller
         $save->category_id = $request->category_id;
         $save->judul = $request->judul;
         $save->save();
-        return redirect('/dashboard');
+        return redirect('/arsip');
     }
 
     /**

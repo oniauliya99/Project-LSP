@@ -10,7 +10,7 @@
                 surat</p>
         </div>
         <div class="input-group mb-3 " style="width: 50%;margin-left:35%">
-            <form action="/dashboard" class="d-flex">
+            <form action="/arsip" class="d-flex">
                 <input type="text" name="search" class="form-control" placeholder="Cari Surat" aria-label="Cari Surat"
                     aria-describedby="basic-addon2" value="{{ request('search') }}">
                 <button type="submit" class="input-group-text" id="basic-addon2">Cari</span>
@@ -58,7 +58,7 @@
                 </tbody>
             </table>
             <div class="d-grid gap-2 d-md-block">
-                <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm">Arsipkan surat</button></a>
+                <a href="{{ route('arsip.create') }}"><button type="button" class="btn btn-secondary btn-sm">Arsipkan surat</button></a>
             </div>
         </div>
     </main>
