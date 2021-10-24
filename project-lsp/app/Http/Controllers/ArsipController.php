@@ -27,7 +27,12 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        //
+        $arsips = Arsip::latest();
+        if (request('search')){
+           $arsips->where('judul','like','%'.request('search').'%');       
+        }
+        return view('pages.index',[
+                    'arsip' => $arsips->get()]);
     }
 
     /**
@@ -101,16 +106,11 @@ class ArsipController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Arsip::find($id)->delete();
+        return back();
     }
     public function simpan(Request $request)
     {
-        // $insert = $request->validate([
-        //     'nomor_surat' => 'required',
-        //     'category_id' => 'required',
-        //     'judul' => 'required',
-        //     'file' => 'file|max:2048|required'
-        // ]);
         if ($request->file('file')) {
             $file = $request->file('file')->store('pdf', 'public');
         }
@@ -121,5 +121,20 @@ class ArsipController extends Controller
         $save->judul = $request->judul;
         $save->save();
         return redirect('/dashboard');
+    }
+
+    public function tampil()
+    {
+        $arsips = Arsip::latest();
+        if (request('search')){
+           $arsips->where('judul','like','%'.request('search').'%');       
+        }
+        return view('pages.index',[
+                    'arsip' => $arsips->get()]);
+    }
+    public function download($id){
+        $letters = Arsip::find($id);
+        $path = public_path('storage/'. $letters->file);
+        return response()->download($path);
     }
 }

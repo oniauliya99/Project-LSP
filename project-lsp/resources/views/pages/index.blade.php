@@ -9,10 +9,13 @@
             <p style="line-height: 0in;margin-left: 5%;font-family: Cambria">Klik lihat pada kolom aksi untuk menampilkan
                 surat</p>
         </div>
-        <div class="input-group mb-3 " style="width: 50%;margin-left:25%">
-            <input type="text" class="form-control" placeholder="Cari Surat" aria-label="Cari Surat"
-                aria-describedby="basic-addon2">
-            <span class="input-group-text" id="basic-addon2">Cari</span>
+        <div class="input-group mb-3 " style="width: 50%;margin-left:35%">
+            <form action="/dashboard" class="d-flex">
+                <input type="text" name="search" class="form-control" placeholder="Cari Surat" aria-label="Cari Surat"
+                    aria-describedby="basic-addon2" value="{{ request('search') }}">
+                <button type="submit" class="input-group-text" id="basic-addon2">Cari</span>
+                </form>
+
         </div>
         <div class="table-responsive">
             <table class="table table-striped table-sm">
@@ -36,12 +39,16 @@
                             <td>{{ $item->created_at }}</td>
                             <td>
                                 <div class="form-group d-flex">
-                                    <form action="{{ route('arsip.destroy', $item->id) }}" enctype="multipart/form-data">
-                                        <span class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus</span>
+                                    <form action="{{ route('arsip.destroy', $item->id) }}" method="POST" enctype="multipart/form-data">
+                                       @csrf
+                                       @method('DELETE')
+                                        <button class="btn btn-danger btn-sm"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus surat ini?')">Hapus
+                                        </button>
                                     </form>
-                                    <span class="btn btn-warning btn-sm mx-1">Unduh</span>
-                                    <a href="{{ route('arsip.show',$item->id) }}"><span class="btn btn-primary btn-sm">Lihat</span></a>
+                                    <a href="/arsip/download/{{ $item->id }}"><span class="btn btn-warning btn-sm mx-1">Unduh</span></a>
+                                    <a href="{{ route('arsip.show', $item->id) }}"><span
+                                            class="btn btn-primary btn-sm">Lihat</span></a>
                                 </div>
 
                             </td>

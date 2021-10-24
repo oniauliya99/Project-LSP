@@ -15,7 +15,12 @@
         <p style="line-height: 0in;margin-left: 5%;font-family: Cambria">
             Waktu Unggah : {{ $detail->created_at }}
         </p>
-        <embed src="{{ asset('storage/'.$detail->file) }}" type="application/pdf" width="100%" height="500px" />
+        <embed src="{{ asset('storage/'.$detail->file) }}" type="application/pdf" style="margin-left: 10%;margin-top:5%" width="80%" height="500px" />
+    </div>
+    <div class="d-grid gap-2 d-md-block mb-4 d-flex">
+        <a href="/dashboard"><button style="margin-left: 8% " type="button" class="btn btn-secondary btn-sm"><< Kembali </button></a>
+        <a href="/arsip/download/{{ $detail->id }}"><button  type="button" class="btn btn-secondary btn-sm">Unduh </button></a>
+        <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm"> Edit / Ganti File</button></a>
     </div>
 </main>  
 @endsection
