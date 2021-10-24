@@ -15,7 +15,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="fname">Nomor Surat </label>
-                    <input style="margin-left: 20pt" type="text" id="nomor_surat" name="nomor_surat"><br><br>
+                    <input required style="margin-left: 20pt" type="text" id="nomor_surat" name="nomor_surat"><br><br>
                 </div>
                 <div class="form-group d-flex mb-4">
                     <label for="lname">Kategori </label>
@@ -28,11 +28,11 @@
                 </div>
                 <div class="form-group mb-2">
                     <label for="fname">Judul </label>
-                    <input style="margin-left: 49pt" type="text" id="judul" name="judul"><br><br>
+                    <input required style="margin-left: 49pt" type="text" id="judul" name="judul"><br><br>
                 </div>
                 <div class="form-group d-flex">
                     <label for="formFileSm" class="form-label">File Surat (PDF)</label>
-                    <input style="margin-left: 25pt" name= "file" class="form-control form-control-sm" id="formFileSm" type="file">
+                    <input required style="margin-left: 25pt" name= "file" class="form-control form-control-sm" id="formFileSm" type="file">
                 </div>
                 <div class="d-grid gap-2 d-md-block mt-5">
                 <a href="/arsip"><button type="button" class="btn btn-secondary btn-sm"><< Kembali</button></a>

@@ -14,7 +14,6 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-// Route::get('/dashboard',[ArsipController::class,'tampil']);
 Route::get('/arsip/download/{id}', [ArsipController::class, 'download']);
 Route::resource('/arsip', ArsipController::class);
 Route::get('/about', function () {
