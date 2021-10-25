@@ -15,7 +15,7 @@
                         <p style="line-height: 0in;font-family: Cambria">
                             Nim : 1931710119</p>
                         <p style="line-height: 0in;margin-top:2%;font-family: Cambria">
-                            Tanggal : 24 Oktober 2021</p>
+                            Tanggal : 25 Oktober 2021</p>
                 </div>
 
 
