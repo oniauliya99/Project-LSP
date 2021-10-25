@@ -58,7 +58,7 @@ class ArsipController extends Controller
         $save->category_id = $request->category_id;
         $save->judul = $request->judul;
         $save->save();
-        return redirect('/arsip');
+        return redirect('/arsip')->with('success','Data berhasil disimpan');
     }
 
     /**
@@ -107,7 +107,7 @@ class ArsipController extends Controller
     public function destroy($id)
     {
         Arsip::find($id)->delete();
-        return back();
+        return back()->with('info','Data berhasil dihapus');
     }
     public function simpan(Request $request)
     {
@@ -120,7 +120,7 @@ class ArsipController extends Controller
         $save->category_id = $request->category_id;
         $save->judul = $request->judul;
         $save->save();
-        return redirect('/dashboard');
+        return redirect('/arsip');
     }
 
     public function tampil()

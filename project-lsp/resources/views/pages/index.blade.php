@@ -18,6 +18,18 @@
 
         </div>
         <div class="table-responsive">
+            @if (session()->has('success'))
+            <div class="alert alert-success solid alert-dismissible fade show w-50 text-center mx-auto">
+                
+                {{ session('success') }}
+            </div>
+            @endif
+            @if (session()->has('info'))
+            <div class="alert alert-danger solid alert-dismissible fade show w-50 text-center mx-auto">
+                
+                {{ session('info') }}
+            </div>
+            @endif
             <table class="table table-striped table-sm">
                 <thead>
                     <tr>
